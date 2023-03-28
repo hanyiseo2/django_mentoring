@@ -1,0 +1,32 @@
+<div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body">
+        <h3 class="text-white m-0"><b>Get the latest Wenear Health news!</b></h3>
+        <p>Sign up for our <b>newsletter</b></p>
+        <div style="display:inline-flex; text-align:center; padding:5px">
+            <img class="img-fluid rounded mb-4 mb-lg-0" src="../../static/logo.jpg" width="200px"alt="..." />
+            {% load crispy_forms_tags %}
+            <form action="{%url 'base:newsletter'%}" method="post" style="margin-top: 20px; margin-left: 10px;">
+                {%csrf_token%}
+                <label for="email"><b>Email:</b></label>
+                <input name="email" type="email">
+                {{ form.as_p}}
+                {%for error in form.email.errors%}
+                {{error}}
+                {%endfor%}
+        <input style="margin-top:10px; color:#3c289b" class="button" type="submit" value="Submit">
+        {%if access%}
+            <p></p>
+        {%elif isSubmitted %}
+           <p id="message">Your email is submiited</p>
+        {%else%}
+           <p id="message">There seems to be a problem. Please try again later.</p>
+        {%endif%}
+        <script>
+            setTimeout(function() {
+                document.getElementById("message").style.display = "none";
+                }, 5000);
+           </script>
+            </form>
+        </div>
+    </div>
+</div>

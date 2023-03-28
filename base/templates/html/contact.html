@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Wenear</title>
+        <!-- Favicon-->
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+     
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static '/css/styles.css'%}" rel="stylesheet" />
+    </head>
+    <style>
+        *{
+            font-family: 'Nunito', sans-serif;
+    }
+    .col-lg-5 { 
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  /* 
+    사진 width확장   
+    */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+    .imgs{
+        display:flex;
+    }
+    </style>
+    <body>
+        <!-- Responsive navbar-->
+        {%include 'html/nav.html'%}
+        <!-- ################################################ -->
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+
+                <div class="header_about">
+                    <div class="header_about_title">
+                        <h1>Wenear Corporate Headquarters</h1>
+                    </div>
+                    <div class="header_about_description">
+                        <p>
+                            <span class="header_about_description_span">
+                                <p>1 West First Avenue<br>
+                                    Conshohocken, PA 19428
+                                </p>
+                                <p>
+                                    <b>Phone:</b> 610.727.7000 <br>
+                                    <b>Fax:</b> 800.640.5221
+                                </p>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <p style="color:#3c289b; font-size: large;">Start a conversation today. Fill out the form below and a representative will be in touch.</p>
+                    <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
+                <form action="{%url 'createForm'%}" method="post" style="color:#3c289b; padding:10px">
+                    {% csrf_token %}
+                    <div style="padding:10px" >
+                        <label for="name"><b>Name:</b></label>
+                        <input name="name" type="text">
+                    </div>
+                    <div style="padding:10px">
+                        <label for="email"><b>Email:</b></label>
+                        <input name="email" type="email">
+                    </div>
+                    <div style="padding:10px" >
+                        <label for="number"><b>Telelphone Number:</b></label>
+                        <input name="number" type="text">
+                    </div>
+                    <div style="padding:10px" >
+                        <label for="company"><b>Company:</b></label>
+                        <input name="company" type="text">
+                    </div>
+                    <div style="padding:10px" >
+                        <label for="message"><b>Message:</b></label>
+                        <input name="message" type="text">
+                    </div>
+                    <input style="margin-top:10px; color:#3c289b" class="button" type="submit" value="Submit">
+                </form>
+                </div>
+                {% if isSubmitted  %}
+                    <p>Your Form is submitted</p>
+                {% else %}
+                <p>Your Form is not submitted</p>
+                {% endif %}
+
+            </div>
+             <!-- Call to Action-->
+             {%include 'html/newsForm.html'%}
+
+        <!-- Footer-->
+        {%include 'html/footer.html'%}
+    </body>
+</html>

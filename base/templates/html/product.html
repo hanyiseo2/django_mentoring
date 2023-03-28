@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Wenear</title>
+        <!-- Favicon-->
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+     
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static '/css/styles.css'%}" rel="stylesheet" />
+    </head>
+    <style>
+     *{
+            font-family: 'Nunito', sans-serif;
+    }
+    .col-lg-5 { 
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  /* 
+    사진 width확장   
+    */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+    .imgs{
+        display:flex;
+    }
+    </style>
+    <body>
+        <!-- Responsive navbar-->
+        {%include 'html/nav.html'%}
+        <!-- ################################################ -->
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+
+                <div class="product_section">
+                        <h1>Senior Care Products</h1>
+                    </div>
+                </div>
+
+<!-- mobility -->
+                <div class="row gx-4 gx-lg-5">
+                    <div>
+                        <h2>Mobility</h2>
+                        <a href="#!">See all 5 products</a>
+                    </div>
+                    <div class="col-md-4 mb-5">
+                        <div class="card h-100" >
+                            <div class="card-body" >
+                                <h3 class="card-title">Feather Chair: Only 13.5 pounds*</h3>
+                                <img src="../../static/product_mobility1.jpg" height="250px" width="220px">
+                                <!-- <p class="card-text">To provide unlimited acitivity, we create well-equiped wheelchair.</p> -->
+                            </div>
+                            <div class="card-footer"><a class="btn btn-primary btn-sm" href="1">More Info</a></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-5">
+                        <div class="card h-100">
+                            <div class="card-body" style="height:250px">
+
+                                <h2 class="card-title">Feather Scooter</h2>
+                                <img src="../../static/product_mobility2.jpg" height="250px" width="220px">
+                            </div>
+                            <div class="card-footer"><a class="btn btn-primary btn-sm" href="2">More Info</a></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-5">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title">Feather HD Chair</h2>
+                                <img src="../../static/product_mobility3.jpg" height="250px"width="220px">
+                            </div>
+                            <div class="card-footer"><a class="btn btn-primary btn-sm" href="3">More Info</a></div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- health&medical -->
+<div class="row gx-4 gx-lg-5">
+    <div>
+        <h2>Health & Medical Supplies</h2>
+        <a href="#!">See all 6 products</a>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Wellskin Barriere Silicone Skin Cream</h2>
+                <img src="../../static/product_supplies1.jpg" height="250px" width="220px">
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="4">More Info</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Coccyx Orthopedic Seat Cushion</h2>
+                <img src="../../static/product_supplies2.jpg" height="250px" width="220px">
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="5">More Info</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">GermGuardian 3-in-1 Air Purifier</h2>
+                <img src="../../static/product_supplies3.jpg" height="250px"width="220px">
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="6">More Info</a></div>
+        </div>
+    </div>
+</div>
+<!-- vision&hearing -->
+<div class="row gx-4 gx-lg-5">
+    <div>
+        <h2>Visions&Hearing</h2>
+        <a href="#!">See all 4 products</a>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Extra Bold, Large Print Keyboard Stickers</h2>
+                <img src="../../static/product_vision1.jpg" height="250px" width="220px">
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="7">More Info</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Talking Rx</h2>
+                <img src="../../static/product_vision2.jpg" height="250px" width="220px">
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="8">More Info</a></div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Eye Drop Dispenser</h2>
+                <img src="../../static/product_vision3.jpg" height="250px" width="220px">
+            </div>
+            <div class="card-footer"><a class="btn btn-primary btn-sm" href="9">More Info</a></div>
+        </div>
+    </div>
+</div>
+
+            
+            <!-- Call to Action-->
+            {%include 'html/newsForm.html'%}
+        <!-- Footer-->
+        {%include 'html/footer.html'%}
+    </body>
+</html>

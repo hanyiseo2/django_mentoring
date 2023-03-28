@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Wenear</title>
+        <!-- Favicon-->
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+     
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static '/css/styles.css'%}" rel="stylesheet" />
+    </head>
+    <style>
+ 
+        *{
+            font-family: 'Nunito', sans-serif;
+    }
+    .col-lg-5 { 
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  /* 
+    사진 width확장   
+    */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+    .imgs{
+        display:flex;
+    }
+    </style>
+    <body>
+        <!-- Responsive navbar-->
+        {%include 'html/nav.html'%}
+        <!-- ################################################ -->
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+
+                <div class="header_about">
+                    <div class="header_about_title">
+                        <h1>About Wenear</h1>
+                    </div>
+                    <div class="header_about_description">
+                        <h4>
+                            <span class="header_about_description_span">
+                                As America's leading health solutions company, we deliver care like no one lese can.
+                            </span>
+                        </h4>
+                        <h4>
+                            <span class="header_about_description_span">
+                                And we do it all with heart, every day.
+                            </span>
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <h2 class="font-weight-light">Who we are</h2>
+                    <h4>A purpose-driven company, we’re making healthier happen together with millions of patients, members and customers. We reach more people and do more to improve the health of their communities thanks to our local presence, digital channels and dedicated colleagues.</h4>
+                    <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
+                    <div class="imgs">
+                        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="../../static/photos/elder.jpg" alt="..." style="padding-top: 10px;"/></div>
+                        <!-- <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="../../static/elder2.jpg" alt="..." /></div> -->
+                    </div>
+                </div>
+
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5" style="margin-top:20px">
+                <h2 class="font-weight-light">What we do</h2>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Our strategy</h2>
+                            <p class="card-text">We’re taking on many of the country’s most pressing health care issues, working to deliver the accessible, affordable, human-centered care that Americans want and need.</p>
+                        </div>
+                        <!-- <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div> -->
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Our people</h2>
+                            <p class="card-text">Across all 50 states and Puerto Rico, our hundreds of thousands of colleagues are living our purpose — and making a difference.</p>
+                        </div>
+                        <!-- <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div> -->
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Our leadership</h2>
+                            <p class="card-text">The experience and vision of our executive team drives our success.</p>
+                        </div>
+                        <!-- <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div> -->
+                    </div>
+                </div>
+            </div>
+
+            </div>
+            <!-- Call to Action-->
+            {%include 'html/newsForm.html'%}
+        <!-- Footer-->
+        {%include 'html/footer.html'%}
+    </body>
+</html>

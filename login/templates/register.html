@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Wenear</title>
+        <!-- Favicon-->
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static '/css/styles.css'%}" rel="stylesheet" />
+    </head>
+    <style>
+        *{
+            font-family: 'Nunito', sans-serif;
+    }
+    </style>
+    <body>
+        <!-- Responsive navbar-->
+        {%include 'html/nav.html'%}
+        <!-- ################################################ -->
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7">
+                    <form method="post" action="{% url 'login:register' %}">
+                        {% csrf_token %}
+                        {% include "form_errors.html" %}
+                        <div class="mb-3">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   value="{{ form.username.value|default_if_none:'' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password1">Password</label>
+                            <input type="password" class="form-control" name="password1" id="password1"
+                                   value="{{ form.password1.value|default_if_none:'' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password2">Password Confirmation</label>
+                            <input type="password" class="form-control" name="password2" id="password2"
+                                   value="{{ form.password2.value|default_if_none:'' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" id="email"
+                                   value="{{ form.email.value|default_if_none:'' }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+
+                    
+                </div>
+                <div style="padding-top:10px">
+                    <p>If you already create an account?</p>     
+                    <p><a href="/register">Sign in!</a></p>
+                </div>
+                <div class="col-lg-5">
+                
+                    
+                </div>
+            </div>
+        </div>
+        {%block content%}
+        {%endblock%}
+        <!-- Footer-->
+       {%include 'html/footer.html'%}
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Wenear</title>
+        <!-- Favicon-->
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static '/css/styles.css'%}" rel="stylesheet" />
+    </head>
+    <style>
+        *{
+            font-family: 'Nunito', sans-serif;
+    }
+    </style>
+    <body>
+        <!-- Responsive navbar-->
+        {%include 'html/nav.html'%}
+        <!-- ################################################ -->
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="../../static/photos/logo2.jpg" alt="..." /></div>
+                <div class="col-lg-5">
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="../../static/photos/logo.jpg" alt="..." />
+                    <h1 class="font-weight-light"><i>We are near </i>- for elder's HealthCare </h1>
+                    <p>Wenear helps families find answers, care and information on eldercare by
+                        facilitating an online forum, suggesting healthCare products for elders, and providing helpful, actionable and insightful articles.</p>
+                </div>
+            </div>
+            <!-- Call to Action-->
+            {%include 'html/newsForm.html'%}
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Mobility</h2>
+                            <img src="../../../static/photos/product_mobility1.jpg" height="250px">
+                            <p class="card-text">To provide unlimited acitivity, we create well-equiped wheelchair.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Health & Medical Supplies</h2>
+                            <img src="../../../static/photos/product_supplies2.jpg" height="210px">
+                            <p class="card-text">It's essential supplies to improve the weaknees of our body parts.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Visions & Hearing</h2>
+                            <img src="../../../static/photos/product_vision3.jpg" height="250px" width="250px">
+                            <p class="card-text">Improving our vision and hearing, various healthcare stuffs are proven by the experiments.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%block content%}
+        {%endblock%}
+        <!-- Footer-->
+       {%include 'html/footer.html'%}
+    </body>
+</html>
