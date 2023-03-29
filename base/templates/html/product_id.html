@@ -76,21 +76,23 @@
                 <div class="col-lg-5">
                     <h2 class="font-weight-light">Review</h2>
                     <div class="col-lg-7">
-                        <form method="post" class="mb-4" action="{% url 'base:review_create' content_list.id %}">
+                        <div>{{product_list.title}}</div>
+                        <div>{{product_list.id}}</div>
+                        <form method="post" class="mb-4" action="{% url 'base:review_create' product_list.id%}">
                             {% csrf_token %}     
                             <textarea id="content" name="content" class="form-control" rows="3"
                             placeholder="내용을 입력해주세요."></textarea>
                             <button type="submit" class="btn btn-primary">submit</button>
                         </form>
-                        
-                        {% for comment in content_list.content_set.all %}
+
                         <div>
+                            {% for comment in content_list.content_set.all %}
                             <div class="fw-bold">{{ comment.author.username }} &nbsp&nbsp
                                 {{ comment.create_date }}
-                            </div>
                                 {{ comment.content }}
+                            </div>
+                            {%endfor%}
                         </div>
-                        {%endfor%}
                     </div>
 
                     <!-- <span class="img">

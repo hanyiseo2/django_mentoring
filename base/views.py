@@ -80,9 +80,9 @@ def product_detail(request,product_id):
     context = {'product_list':product_list}
     return render(request,'html/product_id.html',context)
 
-def review_create(request,content_id):
-    content_list = get_object_or_404(ProductModel,pk=content_id)
-
+def review_create(request,product_id):
+    content_list = get_object_or_404(ProductModel,pk=product_id)
+    print("hihih")
     if(request.method=="POST"):
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -90,7 +90,7 @@ def review_create(request,content_id):
             content.content_list = content_list
             content.author = request.user
             content.save()
-            return redirect("detail", content_id=content_list.id)
+            return redirect("base:product_detail", content_list.id) # product_id=content_list.id
     else:
         form=ReviewForm()
         context={'context_list':content_list,"form":form}

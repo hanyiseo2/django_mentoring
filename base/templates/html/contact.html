@@ -66,7 +66,7 @@
                 <div class="col-lg-5">
                     <p style="color:#3c289b; font-size: large;">Start a conversation today. Fill out the form below and a representative will be in touch.</p>
                     <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
-                <form action="{%url 'createForm'%}" method="post" style="color:#3c289b; padding:10px">
+                <form action="{%url 'base:createForm'%}" method="post" style="color:#3c289b; padding:10px">
                     {% csrf_token %}
                     <div style="padding:10px" >
                         <label for="name"><b>Name:</b></label>

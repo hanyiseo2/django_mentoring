@@ -4,9 +4,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from login.forms import UserForm
 # Create your views here.
 
-def logout(request):
-    auth_logout(request)
-    return redirect('index')
+# def logout(request):
+#     auth_logout(request)
+#     return redirect('index')
 
 def register(request):
     if request.method=="POST":
