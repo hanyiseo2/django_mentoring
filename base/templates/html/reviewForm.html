@@ -10,14 +10,10 @@
                     placeholder="내용을 입력해주세요." style="height:300px;"></textarea>
                     <button type="submit" class="btn btn-primary" style="margin-top:10px">submit</button>
                 </form>
-
                 <div>
                     {% for comment in product_list.review_set.all %}
                     <div>
                         <div class="fw-bold" style="font-weight:bold ; "><b>{{ comment.author.username }} </b>&nbsp &nbsp {{ comment.create_date }}
-                        {% if comment.create_date != comment.modify_date %}
-                        / modifiedDate : {{comment.modify_date}}
-                        {%endif%}
                         {% if request.user == comment.author %}
                             <a href="{% url 'base:review_update' comment.id%}">Update</a>
                             <a href="{% url 'base:review_delete' comment.id%}">Delete</a>

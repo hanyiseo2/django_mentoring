@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Wenear</title>
+        <!-- Favicon-->
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static '/css/styles.css'%}" rel="stylesheet" />
+    </head>
+    <style>
+        *{
+            font-family: 'Nunito', sans-serif;
+    }
+    </style>
+    <body>
+        <!-- Responsive navbar-->
+        {%include 'html/nav.html'%}
+<div class="container px-4 px-lg-5" style="background-color:rgb(246, 238, 227); height:600px" >
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-5">
+            <h2 class="font-weight-light" style="margin-top: 20px;" ><b>Update Review</b></h2>
+            <div class="col-lg-7">
+<form method="post" class="mb-4" action="{% url 'base:review_update' comment.id%}">
+    {% csrf_token %}     
+    <textarea id="content" name="content" class="form-control" rows="3"
+     style="height:300px; width:250px">{{form.content.value}}</textarea>
+    <button type="submit" class="btn btn-primary" style="margin-top:10px">submit</button>
+</form>
+            </div>
+        </div>
+    </div>            
+</div>
+{%include 'html/footer.html'%}
+</body>
+</html>
