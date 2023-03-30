@@ -1,28 +1,64 @@
-function solution(sizes) {
-    var answer = 0;
-    let long,short
-    
-    let width=[]
-    let height=[]
-    for(let arr of sizes){
-        if(arr[0]>arr[1]){ 
-            long=arr[0]
-            short=arr[1]
-        }
-        else{
-            long=arr[1]
-            short=arr[0]
-        }
-        width.push(long)
-        height.push(short)
+function solution(n, arr1, arr2) {
+    let answer=[];
+    var firstArrToBinary = [];
+    var secondArrToBinary = [];
+    let firstArr = []
+    let secondArr = []
+    let prf = "0"
+    let word;
+    //arr1,2 2진수로 변환
+    for(let i =0;i<arr1.length;i++){
+        arr1[i]= arr1[i].toString(2)
+        arr2[i] = arr2[i].toString(2)
+        
+        while(arr1[i].length<n)
+        arr1[i] = prf + arr1[i]
+
+        while(arr2[i].length<n)
+        arr2[i] = prf + arr2[i]
+        
+        firstArrToBinary.push(arr1[i])
+        secondArrToBinary.push(arr2[i])
     }
-    width = Math.max(...width)
-    height = Math.max(...height)
-    answer = width*height
+
+    //arr1 변환  
+    for(let i =0;i<arr1.length;i++){
+        word = ""
+        for(let str of arr1[i]){
+            if( str == "0")
+            word+=" "
+            else word+="#"
+        }
+        firstArr.push(word)
+    }
+    //arr2 변환
+    for(let j =0;j<arr2.length;j++){
+        word = ""
+        for(let str of arr2[j]){
+            if( str == "0")
+            word+=" "
+            else word+="#"
+        }
+        secondArr.push(word)
+    }
     
+    //두 arr 을 보며 정리
+    for(let k=0;k<firstArr.length;k++){
+        word=""
+        for(let t =0;t<firstArr[k].length;t++){
+            if(firstArr[k].charAt(t) != "#" && secondArr[k].charAt(t) != "#" )
+            word+=" "
+            else word+="#"
+        }
+        answer.push(word)
+    }
+   
     return answer;
 }
-console.log(solution([[60, 50], [30, 70], [60, 30], [80, 40]]))
+
+console.log(solution(5,[9, 20, 28, 18, 11],[30, 1, 21, 17, 28]))
+// console.log(solution(6,[46, 33, 33 ,22, 31, 50],[27 ,56, 19, 14, 14, 10]))
+    
 
 
 //9:27 => 9:47

@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.decorators import login_required
 from .models import Contact,Newsletter, ProductModel,Review
 from .forms import NewsForm,ReviewForm
 
@@ -80,18 +82,54 @@ def product_detail(request,product_id):
     context = {'product_list':product_list}
     return render(request,'html/product_id.html',context)
 
+@login_required(login_url='login:login')
 def review_create(request,product_id):
     content_list = get_object_or_404(ProductModel,pk=product_id)
-    print("hihih")
-    if(request.method=="POST"):
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            content = form.save(commit=False)
-            content.content_list = content_list
-            content.author = request.user
-            content.save()
-            return redirect("base:product_detail", content_list.id) # product_id=content_list.id
+    form = ReviewForm(request.POST)
+
+    if(form.is_valid()):
+        print("1")
+        if(request.method=="POST"):
+            print("2")
+            if form.is_valid():
+                content = form.save(commit=False)
+                content.content_list = content_list
+                content.author = request.user
+                content.save()
+                print("2aaaaaaa")
+
+                # return render(request,'html/product_id.html',{'content_list': content_list})
+                return redirect("base:product_detail", product_id=content_list.id) # product_id=content_list.id
     else:
+        print("3aaaaaaa")
         form=ReviewForm()
         context={'context_list':content_list,"form":form}
         return render(request,'html/product_id.html',context)
+    
+def review_update(request,comment_id):
+    review = get_object_or_404(Review,pk=comment_id)
+    print("1HIHIHIH")
+    if request.user != review.author:
+        raise PermissionDenied
+    print("2HIHIHIH")
+
+    # if request.method == 'POST':
+        
+    form = ReviewForm(request.POST, instance=review)
+    print("?")
+    if form.is_valid():
+        review=form.save(commit=False)
+        review.save()
+        print("3HIHIHIH")
+
+        return redirect("base:product_detail", review.content_list.id)
+# else:
+#     form = ReviewForm(instance=review)
+#     print("4HIHIHIH")
+
+    context = {'comment': review, 'form': form}
+    return render(request, 'html/product_id.html',context)
+    
+
+def review_delete(request):
+    return 0

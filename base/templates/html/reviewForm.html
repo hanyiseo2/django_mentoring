@@ -1,0 +1,42 @@
+<div class="container px-4 px-lg-5" style="background-color:rgb(246, 238, 227)">
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-5">
+            <h2 class="font-weight-light" style="margin-top: 20px;" ><b>Review</b></h2>
+            <div class="col-lg-7">
+                <form method="post" class="mb-4" action="{% url 'base:review_create' product_list.id%}">
+                    {% csrf_token %}     
+                    <textarea id="content" name="content" class="form-control" rows="3"
+                    placeholder="내용을 입력해주세요." style="height:300px;"></textarea>
+                    <button type="submit" class="btn btn-primary" style="margin-top:10px">submit</button>
+                </form>
+
+                <div>
+                    {% for comment in product_list.review_set.all %}
+                    <div>
+                        <div class="fw-bold" style="font-weight:bold ; "><b>{{ comment.author.username }} </b>&nbsp &nbsp {{ comment.create_date }}
+                        {% if comment.create_date != comment.modify_date %}
+                        / modifiedDate : {{comment.modify_date}}
+                        {%endif%}
+                        {% if request.user == comment.author %}
+                            <a href="{% url 'base:review_update' comment.id%}">Update</a>
+                            <a href="{% url 'base:review_delete' comment.id%}">Delete</a>
+                        {% endif %}
+                        </div>
+                        {{ comment.content }}
+                    </div>
+                    <br>
+                    {%endfor%}
+                </div>
+            </div>
+
+            <!-- <span class="img">
+                {{product_list.image}}
+            </span> -->
+           
+            <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
+           
+                <!-- <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="../../static/elder2.jpg" alt="..." /></div> -->
+        </div>
+    </div>            
+</div>
