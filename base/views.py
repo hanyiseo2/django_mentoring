@@ -124,7 +124,6 @@ def review_update(request,comment_id):
 @login_required(login_url='login:login')
 def review_delete(request,comment_id):
     review = get_object_or_404(Review, pk=comment_id)
-
     if request.user != review.author:
         raise PermissionDenied
     else:

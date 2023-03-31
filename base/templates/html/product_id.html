@@ -48,21 +48,23 @@
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5">
                     <h2 class="font-weight-light">{{product_list.title}}</h2>
-                    <div class="imgs">
-                        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{{product_list.image.url}}" alt="..." style="padding-top: 10px;"/></div></div>
-                    <!-- <span class="img">
-                        {{product_list.image}}
-                    </span> -->
-                    <span class="description1">
+                    <div class="imgs"style="margin-top: 20px;">
+                        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{{product_list.image.url}}" alt="..." /></div></div>
+                        <br>
+                    <span class="description1" style="margin-top: 20px;">
                         <h3>{{product_list.description1}}</h3>
+                        <br>
                     </span>
-                    <a href="{{product_list.link}}" target="_blank">Buy From Feather</a>
+                    
+                    <a href="{{product_list.link}}" target="_blank">Buy From Feather</a><br>
+                        
                         <span class="characteristic">
-                            <b><h3>{{product_list.characteristic}}</h3></b>
+                            <b><h3>- characteristics: {{product_list.characteristic}}</h3></b>
                         </span>
                         <span class="description2">
-                            <h3>{{product_list.description2}}</h3>
+                            <h3>- descrption: {{product_list.description2}}</h3>
                         </span>
+                        <br>
                         Learn more: <a href="{{product_list.link}}" target="_blank">{{product_list.link}}</a>
                     <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
                    
